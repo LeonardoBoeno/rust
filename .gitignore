@@ -1,0 +1,24 @@
+# Diretório de build do Cargo
+**/target/
+
+# Arquivos de lock para bibliotecas (para binários, normalmente você mantém)
+# **/Cargo.lock
+
+# Arquivos de backup do Rustfmt
+**/*.rs.bk
+
+# Diretórios de ferramentas de desenvolvimento
+/.vscode/
+/.idea/
+
+# Arquivos de logs
+*.log
+
+# Dumps e arquivos temporários
+*.tmp
+*.swp
+*.swo
+
+# Ambiente local
+.env
+.env.*
