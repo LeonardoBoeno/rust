@@ -15,7 +15,7 @@ impl Display for City {
         let lon_c = if self.lon >= 0.0 { 'E' } else { 'W' };
 
         // `write!` is like `format!`, but it will write the formatted string
-        // into a buffer (the first argument).
+        // into a buffer (the first argument)...
         write!(f, "{}: {:.3}°{} {:.3}°{}",
                self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
     }

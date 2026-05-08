@@ -22,3 +22,8 @@
 # Ambiente local
 .env
 .env.*
+
+
+# Added by cargo
+
+/target
