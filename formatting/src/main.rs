@@ -16,6 +16,7 @@ impl Display for City {
 
         // `write!` is like `format!`, but it will write the formatted string
         // into a buffer (the first argument)...
+        // it is a mutable formatter, thats why the value in the buffer can be changed to fit in the string format below.
         write!(f, "{}: {:.3}°{} {:.3}°{}",
                self.name, self.lat.abs(), lat_c, self.lon.abs(), lon_c)
     }
@@ -43,6 +44,7 @@ fn main() {
     ] {
         // Switch this to use {} once you've added an implementation
         // for fmt::Display.
-        println!("{:?}", color);
+        // Testing pretty print
+        println!("{:#?}", color);
     }
 }
