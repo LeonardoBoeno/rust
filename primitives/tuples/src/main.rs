@@ -8,6 +8,12 @@ fn reverse(pair: (i32, bool)) -> (bool, i32) {
     (bool_param, int_param)
 }
 
+fn transpose(m: Matrix) -> Matrix {
+    let Matrix(a, b, c, d) = m;
+
+    Matrix(a, c, b, d)
+}
+
 // The following struct is for the activity.
 
 struct Matrix(f32, f32, f32, f32);
@@ -61,5 +67,6 @@ fn main() {
     println!("{:?}, {:?}, {:?}, {:?}", a, b, c, d);
 
     let matrix = Matrix(1.1, 1.2, 2.1, 2.2);
-    println!("{}", matrix);
+    println!("Matrix:\n{}", matrix);
+    println!("Transpose:\n{}", transpose(matrix));
 }
