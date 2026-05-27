@@ -43,8 +43,8 @@ fn main() {
     // Access the fields of the point
     println!("point coordinates: ({}, {})", point.x, point.y);
 
-    // Make a new point by using struct update syntax to use the fields of our
-    // other one
+    // Make a new point by using struct update syntax to use the fields of our   
+    // other one   
     let bottom_right = Point { x: 10.3, ..another_point };
 
     // `bottom_right.y` will be the same as `another_point.y` because we used that field
