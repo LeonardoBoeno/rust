@@ -1,5 +1,5 @@
 // Create an `enum` to classify a web event. Note how both
-// names and type information together specify the variant:
+// names and type information together specify the variant:  
 // `PageLoad != PageUnload` and `KeyPress(char) != Paste(String)`.
 // Each is different and independent.
 enum WebEvent {
