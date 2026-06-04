@@ -30,6 +30,23 @@ fn inspect(event: WebEvent) {
     }
 }
 
+
+enum VeryVerboseEnumOfThingsToDoWithNumbers {
+    Add,
+    Subtract
+}
+
+type Operations = VeryVerboseEnumOfThingsToDoWithNumbers;
+
+impl VeryVerboseEnumOfThingsToDoWithNumbers {
+    fn run(&self, x: i32, y: i32) -> i32 {
+        match self {
+            Self::Add => x + y,
+            Self::Subtract => x - y,
+        }
+    }
+}
+
 fn main() {
     let pressed = WebEvent::KeyPress('x');
     // `to_owned()` creates an owned `String` from a string slice.
@@ -37,10 +54,15 @@ fn main() {
     let click   = WebEvent::Click { x: 20, y: 80 };
     let load    = WebEvent::PageLoad;
     let unload  = WebEvent::PageUnload;
-
+    let x       = Operations::Add;
+    let x2      = Operations::Subtract;
     inspect(pressed);
     inspect(pasted);
     inspect(click);
     inspect(load);
     inspect(unload);
+
+    
+    println!("{}", x.run(10, 5)); // 15
+    println!("{}", x2.run(10, 5)); // 15
 }
