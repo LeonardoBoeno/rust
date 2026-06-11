@@ -1,6 +1,5 @@
 use std::fmt;
 
-// Create an `enum` to classify a web event.
 enum WebEvent {
     PageLoad,
     PageUnload,
@@ -9,7 +8,6 @@ enum WebEvent {
     Click { x: i64, y: i64 },
 }
 
-// Implement Display for WebEvent
 impl fmt::Display for WebEvent {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
@@ -27,9 +25,7 @@ impl fmt::Display for WebEvent {
     }
 }
 
-// A function which takes a `WebEvent` enum as an argument
 fn inspect(event: WebEvent) {
-    // Agora usa Display ao invés de match manual
     println!("{}", event);
 }
 
