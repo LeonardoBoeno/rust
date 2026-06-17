@@ -43,6 +43,7 @@ fn main() {
     let role = Student;
 
     // Agora você pode imprimir diretamente com {}
+    
     println!("Stage: {}", stage);
     println!("Role: {}", role);
 
