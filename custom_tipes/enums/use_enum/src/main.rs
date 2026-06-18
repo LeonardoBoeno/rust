@@ -12,6 +12,7 @@ enum Role {
     Teacher,
 }
 
+
 impl Stage {
     fn is_beginner(&self) -> bool {
         matches!(self, Stage::Beginner)
@@ -28,6 +29,7 @@ impl Stage {
         }
     }
 }
+
 
 impl Role {
     fn is_student(&self) -> bool {
@@ -55,7 +57,6 @@ impl fmt::Display for Stage {
     }
 }
 
-// Implement Display for Role
 impl fmt::Display for Role {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
@@ -65,32 +66,47 @@ impl fmt::Display for Role {
     }
 }
 
+enum Profile {
+    BeginnerStudent,
+    BeginnerTeacher,
+    AdvancedStudent,
+    AdvancedTeacher,
+}
+
+impl Profile {
+    fn new(stage: Stage, role: Role) -> Self {
+        match (stage, role) {
+            (Stage::Beginner, Role::Student) => Profile::BeginnerStudent,
+            (Stage::Beginner, Role::Teacher) => Profile::BeginnerTeacher,
+            (Stage::Advanced, Role::Student) => Profile::AdvancedStudent,
+            (Stage::Advanced, Role::Teacher) => Profile::AdvancedTeacher,
+        }
+    }
+
+    fn describe(&self) -> &'static str {
+        match self {
+            Profile::BeginnerStudent => "A beginner student starting their journey",
+            Profile::BeginnerTeacher => "A beginner teacher learning to teach",
+            Profile::AdvancedStudent => "An advanced student mastering the subject",
+            Profile::AdvancedTeacher => "An advanced teacher guiding others",
+        }
+    }
+}
+
+impl fmt::Display for Profile {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.describe())
+    }
+}
+
 fn main() {
-    use Stage::{Beginner, Advanced};
+    use Stage::*;
     use Role::*;
 
     let stage = Beginner;
     let role = Student;
 
-    println!("Stage: {}", stage);
-    println!("Role: {}", role);
+    let profile = Profile::new(stage, role);
 
-    // Testando métodos
-    println!("Is beginner? {}", stage.is_beginner());
-    println!("Is advanced? {}", stage.is_advanced());
-    println!("Stage level: {}", stage.level());
-
-    println!("Is student? {}", role.is_student());
-    println!("Is teacher? {}", role.is_teacher());
-    println!("Role description: {}", role.description());
-
-    match stage {
-        Beginner => println!("Beginners are starting their learning journey!"),
-        Advanced => println!("Advanced learners are mastering their subjects..."),
-    }
-
-    match role {
-        Student => println!("Students are acquiring knowledge!"),
-        Teacher => println!("Teachers are spreading knowledge!"),
-    }
+    println!("Profile: {}", profile);
 }
